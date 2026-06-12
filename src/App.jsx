@@ -45,8 +45,8 @@ const locations = [
   {
     name: 'Los Olivos',
     city: 'Lima, Peru',
-    phone: '98606841',
-    whatsapp: '5198606841',
+    phone: '986068412',
+    whatsapp: '51986068412',
   },
   {
     name: 'Comas',
@@ -66,7 +66,7 @@ function WhatsAppIcon() {
 }
 
 function App() {
-  const whatsappUrl = 'https://wa.me/5198606841'
+  const whatsappUrl = 'https://wa.me/51986068412'
 
   return (
     <>
@@ -289,7 +289,7 @@ function App() {
         <div className="container footer-bottom">
           <span>Afrivet 2026. Todos los derechos reservados.</span>
           <a href={whatsappUrl} target="_blank" rel="noreferrer">
-            WhatsApp Los Olivos: 98606841
+            WhatsApp Los Olivos: 986068412
           </a>
         </div>
       </footer>
