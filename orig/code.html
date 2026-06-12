@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Afrivet | Clínica Veterinaria y Estética Canina</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container": "#e4f0f4",
+                    "secondary": "#586062",
+                    "surface-container-low": "#eaf5fa",
+                    "error-container": "#ffdad6",
+                    "on-error": "#ffffff",
+                    "surface-bright": "#f1fbff",
+                    "secondary-fixed": "#dde4e6",
+                    "surface-container-high": "#dfeaef",
+                    "on-tertiary": "#ffffff",
+                    "on-background": "#131d21",
+                    "background": "#f1fbff",
+                    "on-secondary-fixed-variant": "#41484a",
+                    "surface": "#f1fbff",
+                    "on-primary-fixed": "#410001",
+                    "inverse-primary": "#ffb4aa",
+                    "tertiary-fixed-dim": "#ccc5c5",
+                    "inverse-on-surface": "#e7f3f7",
+                    "on-primary-container": "#fffbff",
+                    "surface-dim": "#d1dce0",
+                    "on-tertiary-fixed": "#1e1b1b",
+                    "primary-fixed": "#ffdad5",
+                    "on-tertiary-fixed-variant": "#4a4646",
+                    "surface-container-lowest": "#ffffff",
+                    "outline": "#936e69",
+                    "on-primary-fixed-variant": "#930006",
+                    "primary-container": "#e61919",
+                    "primary": "#bc000a",
+                    "on-surface-variant": "#5e3f3b",
+                    "on-tertiary-container": "#fffbff",
+                    "on-secondary-fixed": "#161d1f",
+                    "on-secondary-container": "#5d6466",
+                    "error": "#ba1a1a",
+                    "surface-container-highest": "#d9e4e9",
+                    "on-secondary": "#ffffff",
+                    "outline-variant": "#e8bcb6",
+                    "inverse-surface": "#283236",
+                    "tertiary-container": "#787373",
+                    "primary-fixed-dim": "#ffb4aa",
+                    "tertiary-fixed": "#e8e1e1",
+                    "tertiary": "#5f5a5b",
+                    "secondary-container": "#dae1e3",
+                    "on-primary": "#ffffff",
+                    "surface-variant": "#d9e4e9",
+                    "surface-tint": "#c0000b",
+                    "on-surface": "#131d21",
+                    "secondary-fixed-dim": "#c1c8ca",
+                    "on-error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xl": "80px",
+                    "base": "8px",
+                    "lg": "48px",
+                    "margin-mobile": "16px",
+                    "gutter": "24px",
+                    "sm": "12px",
+                    "md": "24px",
+                    "xs": "4px",
+                    "margin-desktop": "64px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Manrope"],
+                    "headline-lg-mobile": ["Manrope"],
+                    "body-md": ["Manrope"],
+                    "label-md": ["Manrope"],
+                    "label-sm": ["Manrope"],
+                    "headline-lg": ["Manrope"],
+                    "display-lg": ["Manrope"],
+                    "body-lg": ["Manrope"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Animation States */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+            will-change: opacity, transform;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Floating Animation */
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: floating 4s ease-in-out infinite;
+        }
+
+        /* Soft Pulse Effect for CTAs */
+        @keyframes soft-pulse {
+            0% { box-shadow: 0 0 0 0 rgba(188, 0, 10, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(188, 0, 10, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(188, 0, 10, 0); }
+        }
+        .cta-pulse {
+            animation: soft-pulse 2s infinite;
+        }
+
+        /* Hover Transitions */
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .card-hover:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+        @media (max-width: 768px) {
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Reduce motion support */
+        @media (prefers-reduced-motion: reduce) {
+            .reveal, .animate-float, .cta-pulse, .card-hover {
+                transition: none !important;
+                animation: none !important;
+                transform: none !important;
+                opacity: 1 !important;
+            }
+        }
+
+        /* Subtle parallax container */
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- Header / Navigation -->
+<header class="sticky top-0 w-full z-50 bg-surface/90 backdrop-blur-md shadow-sm border-b border-outline-variant/30">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 mx-auto max-w-7xl">
+<a class="flex items-center gap-2 group" href="#">
+<img alt="Afrivet Logo" class="h-12 w-auto animate-float group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4d_X13f5yzzMHFQuu9O0y12U1zk_hF5WuwyGCulLUPrO1QFhPDY3jxVMOuz4pry97CTsoNEkNAWy7D44eQC3dbR_b4nB5szYNeNbvm_UyXEM5HCdySJfdZ-RP2H3MGmsMA88_bi-4vNed_sgs-R3dIrmfRBhmwntACcNLghBQ1B9wNK8A46jX7bhuQ5qSOkczwVUobL15EqGw8AkvweqWK3btNrFF1KqwNzvci6U9FyE8zshCcZu8p8pp4S7rPuT3oW3io-_z_NyK"/>
+<span class="hidden md:block font-headline-lg text-headline-lg font-black text-primary group-hover:text-primary-container transition-colors duration-300">Afrivet</span>
+</a>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-secondary hover:text-primary font-label-md text-label-md transition-all duration-300 relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-[2px] after:bg-primary after:transform after:scale-x-100" href="#clinic">Clinic</a>
+<a class="text-secondary hover:text-primary font-label-md text-label-md transition-all duration-300 relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all after:duration-300 hover:after:w-full" href="#aesthetics">Aesthetics</a>
+<a class="text-secondary hover:text-primary font-label-md text-label-md transition-all duration-300 relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all after:duration-300 hover:after:w-full" href="#gallery">Gallery</a>
+<a class="text-secondary hover:text-primary font-label-md text-label-md transition-all duration-300 relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all after:duration-300 hover:after:w-full" href="#testimonials">Testimonials</a>
+</nav>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-label-md text-label-md hover:brightness-110 active:scale-95 transition-all duration-300 shadow-md cta-pulse">
+                Book Appointment
+            </button>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative w-full min-h-[85vh] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover transition-transform duration-1000 ease-out scale-105" data-alt="A high-resolution, heartwarming photograph of a happy Golden Retriever and a fluffy Calico cat sitting together peacefully in a bright, modern veterinary clinic setting. The background features soft clinical whites and warm wood textures, illuminated by natural sunlight streaming through large windows." id="hero-bg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6YTZZ28ae9w4nm3shR8PKdT7SjKmkOEsDLZGV4McELv1dJJMG2T1Hqs3DWeOev7aZ7nIzmRrgvK0IzElA1sxjPtR_as1hdap_RL0lwTv9f70jO_zrV4aX5P__wQenv8rqJaxmApICQyymsFY6WL7RGQZ_4LYtomb4LQ_ILyePiFMRhnUE34YM2PEVXe0gGAGNLywRDGbBB4hN-ZyKeK7C9vEiZ0N2vnk3cdFaSQa97mwqRsMfuxDHnLblCZHgae1-YLVqpCkNz5Co"/>
+<div class="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent"></div>
+</div>
+<div class="relative z-10 w-full px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto">
+<div class="max-w-2xl reveal">
+<span class="inline-block py-1 px-4 mb-4 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-label-sm uppercase tracking-wider animate-float" style="animation-delay: 0.5s">Professional Pet Care</span>
+<h1 class="font-display-lg text-display-lg text-on-background mb-6 leading-tight">Somos un segundo hogar para nuestras mascotas</h1>
+<p class="font-body-lg text-body-lg text-secondary mb-8 max-w-lg">Cuidado profesional y amoroso para los integrantes más especiales de la familia. Porque sabemos que tu mascota es parte de tu vida.</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-xl font-label-md text-label-md hover:brightness-110 transition-all shadow-lg flex items-center justify-center gap-2 cta-pulse">
+<span class="material-symbols-outlined">calendar_today</span>
+                        Book Appointment
+                    </button>
+<button class="bg-surface-container-lowest text-primary border-2 border-primary px-8 py-4 rounded-xl font-label-md text-label-md hover:bg-primary hover:text-white transition-all shadow-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">health_and_safety</span>
+                        Our Services
+                    </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="py-xl bg-surface-container-lowest" id="clinic">
+<div class="px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto">
+<div class="text-center mb-16 reveal">
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-4">Nuestros Servicios Especializados</h2>
+<div class="h-1.5 w-24 bg-primary mx-auto rounded-full"></div>
+</div>
+<div class="grid md:grid-cols-2 gap-8">
+<!-- Clínica Card -->
+<div class="group relative bg-surface p-8 rounded-3xl border border-outline-variant hover:shadow-2xl transition-all duration-500 reveal card-hover overflow-hidden">
+<div class="absolute -right-12 -top-12 w-48 h-48 bg-primary-fixed opacity-10 rounded-full group-hover:scale-150 transition-transform duration-700"></div>
+<div class="relative z-10">
+<div class="bg-primary/10 text-primary w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-transform group-hover:rotate-6 group-hover:scale-110">
+<span class="material-symbols-outlined text-4xl" data-weight="fill">medical_services</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-background mb-4">Clínica Veterinaria</h3>
+<p class="text-secondary mb-6 body-md leading-relaxed">Equipada con tecnología de punta para diagnósticos precisos y tratamientos efectivos. Tu tranquilidad es nuestra prioridad.</p>
+<ul class="space-y-3 mb-8">
+<li class="flex items-center gap-3 text-secondary font-label-md transition-transform group-hover:translate-x-2 duration-300">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span> Urgencias 24/7
+                            </li>
+<li class="flex items-center gap-3 text-secondary font-label-md transition-transform group-hover:translate-x-2 duration-300 delay-75">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span> Chequeos Preventivos
+                            </li>
+<li class="flex items-center gap-3 text-secondary font-label-md transition-transform group-hover:translate-x-2 duration-300 delay-150">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span> Esquema de Vacunación
+                            </li>
+</ul>
+<button class="text-primary font-label-md flex items-center gap-2 hover:gap-4 transition-all duration-300">
+                            Leer más <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Estética Card -->
+<div class="group relative bg-surface p-8 rounded-3xl border border-outline-variant hover:shadow-2xl transition-all duration-500 reveal card-hover overflow-hidden" id="aesthetics">
+<div class="absolute -right-12 -top-12 w-48 h-48 bg-primary-fixed opacity-10 rounded-full group-hover:scale-150 transition-transform duration-700"></div>
+<div class="relative z-10">
+<div class="bg-primary/10 text-primary w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-transform group-hover:rotate-[-6deg] group-hover:scale-110">
+<span class="material-symbols-outlined text-4xl" data-weight="fill">content_cut</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-background mb-4">Estética Canina</h3>
+<p class="text-secondary mb-6 body-md leading-relaxed">Mucho más que un corte. Ofrecemos una experiencia relajante donde consentimos a tu mascota con los mejores productos.</p>
+<ul class="space-y-3 mb-8">
+<li class="flex items-center gap-3 text-secondary font-label-md transition-transform group-hover:translate-x-2 duration-300">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span> Baño y Grooming Profesional
+                            </li>
+<li class="flex items-center gap-3 text-secondary font-label-md transition-transform group-hover:translate-x-2 duration-300 delay-75">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span> Pet Spa &amp; Relax
+                            </li>
+<li class="flex items-center gap-3 text-secondary font-label-md transition-transform group-hover:translate-x-2 duration-300 delay-150">
+<span class="material-symbols-outlined text-primary text-sm">check_circle</span> Estilismo Personalizado
+                            </li>
+</ul>
+<button class="text-primary font-label-md flex items-center gap-2 hover:gap-4 transition-all duration-300">
+                            Ver Galería <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- About Us Section -->
+<section class="py-xl bg-surface-container-low overflow-hidden">
+<div class="px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-lg">
+<div class="w-full md:w-1/2 reveal">
+<div class="relative group">
+<div class="absolute -inset-4 bg-primary/10 rounded-[40px] rotate-3 group-hover:rotate-1 group-hover:scale-105 transition-all duration-700"></div>
+<img class="relative rounded-[32px] w-full h-[500px] object-cover shadow-xl transition-transform duration-700 group-hover:scale-[1.02]" data-alt="A professional, warm photograph showing a veterinarian in clinical attire gently examining a small dog while its owner smiles in the background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvoM_Y1XIo8FlGeMw0Dn5KmM_qtzMZMA1ew4iabflScrJ8-J8HoZFErAJMBU_JqFbdMAh9sa_Ba3av4UWVqSGzZ3dEtBU2HjrIbx1iS9kyW1PRHh2tugibtd5JGsFAW3juRCJKbgrsmIb03WXWmRKv87YDqS9EteD_pmxtarHsIg0gsJXo6UzSTQAx4FV19OUSvP1nWGXVpCPXog8r9qxWmjdTOEKpqyagmcqE8nb81plw1RjmVlktF1zi1lcRv4pz78AcCsXVIXOx"/>
+</div>
+</div>
+<div class="w-full md:w-1/2 reveal">
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-6">Nuestra Filosofía de 'Segundo Hogar'</h2>
+<p class="text-body-lg text-secondary mb-6 leading-relaxed">
+                    En Afrivet, entendemos que tu mascota no es solo un animal, es un miembro valioso de tu familia. Por eso, hemos diseñado nuestras instalaciones y procesos para minimizar el estrés y maximizar el bienestar.
+                </p>
+<div class="grid grid-cols-2 gap-6 mb-8">
+<div class="flex flex-col gap-2 group cursor-default">
+<span class="text-primary font-black text-4xl group-hover:scale-110 origin-left transition-transform duration-300 inline-block">15+</span>
+<span class="text-on-surface-variant font-label-md">Años de experiencia</span>
+</div>
+<div class="flex flex-col gap-2 group cursor-default">
+<span class="text-primary font-black text-4xl group-hover:scale-110 origin-left transition-transform duration-300 inline-block">5k+</span>
+<span class="text-on-surface-variant font-label-md">Mascotas felices</span>
+</div>
+</div>
+<p class="text-body-md text-secondary italic border-l-4 border-primary pl-6 py-2 bg-primary/5 rounded-r-lg">
+                    "No solo curamos cuerpos, cuidamos corazones. Cada ladrido y maullido cuenta una historia que nosotros escuchamos con atención."
+                </p>
+</div>
+</div>
+</section>
+<!-- Bento Gallery Section -->
+<section class="py-xl bg-surface-container-lowest" id="gallery">
+<div class="px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto">
+<div class="text-center mb-16 reveal">
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-4">Nuestra Galería de Felicidad</h2>
+<p class="text-secondary max-w-lg mx-auto">Echa un vistazo a nuestros pacientes consentidos y nuestras instalaciones.</p>
+</div>
+<div class="bento-grid h-[800px] md:h-[600px]">
+<div class="col-span-12 md:col-span-6 bg-surface-container rounded-3xl overflow-hidden reveal shadow-sm hover:shadow-xl transition-all duration-500">
+<img class="w-full h-full object-cover hover:scale-110 transition-transform duration-1000 ease-out" data-alt="A clean and bright veterinary examination room at Afrivet." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB64fShM7WXaIvAL92rUUBt5pJl8XEw17hoLwRQ_Qa7seNSsfLJh8ftGfyIuNZqpmaNJDzlfcV76AMI7gN1aLQawDsKK7-RZGidSCqalE_LNBUGtZJGBSYmpkNN05nXL1euyLScc-cl_Z0_uCmSOu_pBxRynzHg9SM6tcfS_Hq_lOV-O2zoO8wIishiZ-WGH8O4IJvq5bje8eL81RsCJqghsNwnWrCBjv0qKbIV5KsmHnbc3ADjQPFCj6uUHNNkIRW40mTgzSaEpzcT"/>
+</div>
+<div class="col-span-12 md:col-span-3 bg-surface-container rounded-3xl overflow-hidden reveal shadow-sm hover:shadow-xl transition-all duration-500 delay-75">
+<img class="w-full h-full object-cover hover:scale-110 transition-transform duration-1000 ease-out" data-alt="A happy, freshly groomed dog with a vibrant red bow." src="https://lh3.googleusercontent.com/aida-public/AB6AXuArU0yHOEshDHE96ONUw9qHRkNS5wNZJJgdEKQNHOk5t6irAkOjAH0C2VKT-k8Ku5AL8ilu7GSfgrne16mOOgCvcCbcz95cZGm8vO8MA8YDxWD8glaxFgSptKkPQ090rr6G6ZwrPVrE1sd9TL-4jKScuZUF8Jq4NJwsQu7Oafwx6P2cnonAjjBvh3zWLIbwXxHszpkw4YgZNKUeFmiABqNWZVE8FLHAZj8xY8sy6fPgJPMCREV-WB83DYaWR4idh-wKpWq1jdiXLpoJ"/>
+</div>
+<div class="col-span-12 md:col-span-3 bg-surface-container rounded-3xl overflow-hidden reveal shadow-sm hover:shadow-xl transition-all duration-500 delay-150">
+<img class="w-full h-full object-cover hover:scale-110 transition-transform duration-1000 ease-out" data-alt="A macro shot of a veterinarian's hands gently checking a cat's paw." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7VP49tMUKaPU6Rc0m33XUWhpQqo9EYggS-keUkANkkV2MZaTKPtCScTQqwIuQwd-ZW6QU8cnPJw2J5fSwLkB2YNI26nnTF1VvLvo9JOjtJEIIlQ9DwFzyEqkXbb5xNpiEhIrdMGRRzGR8S3hfuMLVk7ERQLFb-cBgiVH-5v7LPJOhTPZkV0fkHzW4W3D41xtZQqtUJJmT-8GC4ViBmLc7Z3ug8z4dYo2hGqLAtZYqJCHR-s3FzyPzCsW4nqh6uyeNeeFebiHsZABb"/>
+</div>
+<div class="col-span-12 md:col-span-4 bg-surface-container rounded-3xl overflow-hidden reveal shadow-sm hover:shadow-xl transition-all duration-500 delay-100">
+<img class="w-full h-full object-cover hover:scale-110 transition-transform duration-1000 ease-out" data-alt="A joyful dog running in a designated play area." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOjJ1nzKVU4J31axYxeP0s8KnzN_8A-6MIAQiFfFAUyl32OHHxgckkfD3sgUttuvUVj8CoDMkluRQIQMXhOmgMsfacvUIQkeiEG5vv6yavLH6dpeYFQ7a5W-kQYkNRHy99hKYQYaFDBlSv00dLYplfFz6Vv8Gwxv2zKnevEXp4YYMDMhq5Q6Ze5OelMeRCsBUWzlFmCBeXi3Hgpm-9CaR8p5X9Sc8c5FCGRZc-MvwVybWt1QLLhAULJw2W49L8KDcO3mE9e1wY5b00"/>
+</div>
+<div class="col-span-12 md:col-span-8 bg-surface-container rounded-3xl overflow-hidden reveal shadow-sm hover:shadow-xl transition-all duration-500 delay-200">
+<img class="w-full h-full object-cover hover:scale-110 transition-transform duration-1000 ease-out" data-alt="A wide shot of the Afrivet clinic entrance and reception area." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQF_aobEQRRW2Z0ZwfCvcB87woCPV3m68YQo5JNbDxdjJZAf5IaDFZ7QtQu5Imef1He-SgrjxvVNR6Rwv6PoBrYo4km-CVWjLFetfLDFjd-kHptergT0SxkAT026QX4IGq0CXy7rsjbgxH_HJZrm237mY4HV7rujqSt5f_OHq4tZ2bAhciFPU3BYvq5mkbGnTOgyjn8vlBlvfpt8M9m9oB7wonsHR9M9nl1OTA99s_9_XiixRJTxBXGXleNZEp4p0CIYiOqj0SMqwA"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials Section -->
+<section class="py-xl bg-surface-container-high" id="testimonials">
+<div class="px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal">
+<div class="max-w-xl">
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-4">Lo que dicen nuestras familias</h2>
+<p class="text-secondary">Nada nos llena más de orgullo que la confianza de quienes nos eligen día a día.</p>
+</div>
+<div class="flex gap-4 mt-8 md:mt-0">
+<button class="w-12 h-12 rounded-full bg-white text-primary flex items-center justify-center shadow-md hover:bg-primary hover:text-white transition-all hover:scale-110 active:scale-95">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-12 h-12 rounded-full bg-white text-primary flex items-center justify-center shadow-md hover:bg-primary hover:text-white transition-all hover:scale-110 active:scale-95">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Testimonial 1 -->
+<div class="bg-surface-container-lowest p-8 rounded-3xl shadow-sm reveal card-hover">
+<div class="flex gap-1 text-primary mb-6">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-secondary italic mb-8">"Llevé a mi perrito Toby por una urgencia y la atención fue increíble. Son verdaderos profesionales con una calidad humana excepcional."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container overflow-hidden ring-2 ring-primary/20">
+<img alt="User" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1AgBsh116i822HG28wZEtPBi0X2LuEcNPlyZbIQxNh9mvtXNro24YZ_tkbZ4RahK3wI03BTaX31WNDGZiLJLP6IG6qfvm-BTk9UnQTg993px-5VuErj3vKDx2HgNKaFGGvoFDem6LFXXLxdNf1LS3Gqhq_XRXzr-4SNHcV8b0cRV-zxeg43nS4T22Z65VeXJ7sP5ZcjybHH-CCRMuM0qsnB8FLHyMph4qMi4hezBT8JMvAmCg8jaMpPrKffx9mH3L4x0mZryleheb"/>
+</div>
+<div>
+<p class="font-label-md text-on-surface">María G.</p>
+<p class="text-label-sm text-on-surface-variant">Dueña de Toby</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="bg-surface-container-lowest p-8 rounded-3xl shadow-sm reveal card-hover delay-100">
+<div class="flex gap-1 text-primary mb-6">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-secondary italic mb-8">"El servicio de estética es el mejor que he probado. Mi gatita Luna sale siempre relajada y preciosa. Se nota que aman lo que hacen."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container overflow-hidden ring-2 ring-primary/20">
+<img alt="User" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOrjOsBFXSFcERrccrrpWgnMBbXMR6nDfnCZd7RKGHefyKEJM9ne4wwY9eIqz_2RmslniUC6HZEMDbdJTY0ev7gYCkBnIbdCOFjUKf2dYB4pCU0IW-fbPLeuRRVF2nYOvN0sStKJV03EkQwSwdkhBP4UOWYGGobBtR3WVK2O1AwVHPdaSOP1I5e3lmB0f73DJet_hHSsMcjrtZc0HsbaRtX8fMC__pWFAJA59n44Cpvg3dm3h5ljdklQooVDtreX7EnCgPk9i7jSmD"/>
+</div>
+<div>
+<p class="font-label-md text-on-surface">Carlos R.</p>
+<p class="text-label-sm text-on-surface-variant">Dueño de Luna</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="bg-surface-container-lowest p-8 rounded-3xl shadow-sm reveal card-hover delay-200">
+<div class="flex gap-1 text-primary mb-6">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-secondary italic mb-8">"Afrivet es como nuestra segunda casa. El trato es personalizado y siempre están dispuestos a explicarte todo con paciencia."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container overflow-hidden ring-2 ring-primary/20">
+<img alt="User" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAL2Cw-DfG4_K2csKsNeM-ODS22D9hhSclllUEXwV0YJ3AidRTEp0fShLv49RianqTNMxcz12hZb_AofH_Vfd83cHi_9zgw7EWV73Iif1PH8odXSfjFfNPdRtsq6yvsWWfY6jXN0qXVqiwec1l3nF_o6jiMhV6ysY8_yuUGJt7HKPKU0MBd1aNCQct9FRh3DjW6XkxVHqNhxO8kt6AheQUj3b5ReiuvApzFlRi10UAd672S0bTy6OT9zZ59q46hagfhm5iKro06HCGK"/>
+</div>
+<div>
+<p class="font-label-md text-on-surface">Lucía F.</p>
+<p class="text-label-sm text-on-surface-variant">Dueña de Max</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA Section -->
+<section class="py-xl bg-surface-container-lowest relative overflow-hidden">
+<div class="absolute inset-0 z-0 opacity-5">
+<img class="w-full h-full object-contain scale-150 rotate-12 animate-float" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4d_X13f5yzzMHFQuu9O0y12U1zk_hF5WuwyGCulLUPrO1QFhPDY3jxVMOuz4pry97CTsoNEkNAWy7D44eQC3dbR_b4nB5szYNeNbvm_UyXEM5HCdySJfdZ-RP2H3MGmsMA88_bi-4vNed_sgs-R3dIrmfRBhmwntACcNLghBQ1B9wNK8A46jX7bhuQ5qSOkczwVUobL15EqGw8AkvweqWK3btNrFF1KqwNzvci6U9FyE8zshCcZu8p8pp4S7rPuT3oW3io-_z_NyK"/>
+</div>
+<div class="relative z-10 px-margin-mobile md:px-margin-desktop max-w-5xl mx-auto text-center bg-primary rounded-[48px] py-16 px-8 text-on-primary shadow-2xl reveal">
+<h2 class="font-display-lg text-display-lg mb-6">¿Tu mascota necesita atención?</h2>
+<p class="text-body-lg mb-10 max-w-2xl mx-auto opacity-90">Estamos listos para recibirte. Agenda una cita hoy mismo y regálale a tu mascota el cuidado que se merece.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-6">
+<button class="bg-white text-primary px-10 py-5 rounded-2xl font-headline-md shadow-xl hover:scale-105 active:scale-95 transition-all cta-pulse">
+                    Agendar Cita
+                </button>
+<button class="bg-primary-container/20 border-2 border-white/30 backdrop-blur-sm text-white px-10 py-5 rounded-2xl font-headline-md hover:bg-white/10 transition-all">
+                    Contáctanos
+                </button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-highest w-full py-lg">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto">
+<div class="space-y-6">
+<div class="flex items-center gap-2">
+<img alt="Logo" class="h-10 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4d_X13f5yzzMHFQuu9O0y12U1zk_hF5WuwyGCulLUPrO1QFhPDY3jxVMOuz4pry97CTsoNEkNAWy7D44eQC3dbR_b4nB5szYNeNbvm_UyXEM5HCdySJfdZ-RP2H3MGmsMA88_bi-4vNed_sgs-R3dIrmfRBhmwntACcNLghBQ1B9wNK8A46jX7bhuQ5qSOkczwVUobL15EqGw8AkvweqWK3btNrFF1KqwNzvci6U9FyE8zshCcZu8p8pp4S7rPuT3oW3io-_z_NyK"/>
+<span class="font-headline-md text-headline-md text-primary">Afrivet</span>
+</div>
+<p class="text-body-md text-secondary leading-relaxed">
+                    © 2024 Afrivet Clínica Veterinaria. Somos un segundo hogar para nuestras mascotas.
+                </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-surface flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all shadow-sm hover:scale-110" href="#">
+<span class="material-symbols-outlined">face_nod</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all shadow-sm hover:scale-110" href="#">
+<span class="material-symbols-outlined">photo_camera</span>
+</a>
+</div>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface mb-6 uppercase tracking-widest">Servicios</h4>
+<ul class="space-y-4">
+<li><a class="text-secondary hover:text-primary transition-colors text-body-md block hover:translate-x-1 duration-300" href="#">Consulta Médica</a></li>
+<li><a class="text-secondary hover:text-primary transition-colors text-body-md block hover:translate-x-1 duration-300" href="#">Cirugías</a></li>
+<li><a class="text-secondary hover:text-primary transition-colors text-body-md block hover:translate-x-1 duration-300" href="#">Estética Canina</a></li>
+<li><a class="text-secondary hover:text-primary transition-colors text-body-md block hover:translate-x-1 duration-300" href="#">Laboratorio</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface mb-6 uppercase tracking-widest">Contacto</h4>
+<ul class="space-y-4">
+<li class="flex items-start gap-3 text-secondary text-body-md group">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">location_on</span>
+                        Av. Principal de las Mascotas #123, Ciudad Animal.
+                    </li>
+<li class="flex items-center gap-3 text-secondary text-body-md group">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">phone</span>
+                        +1 (555) 123-4567
+                    </li>
+<li class="flex items-center gap-3 text-secondary text-body-md group">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">mail</span>
+                        hola@afrivet.com
+                    </li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface mb-6 uppercase tracking-widest">Horarios</h4>
+<ul class="space-y-2 text-secondary text-body-md">
+<li class="flex justify-between"><span>Lun - Vie:</span> <span>09:00 - 19:00</span></li>
+<li class="flex justify-between"><span>Sábados:</span> <span>10:00 - 15:00</span></li>
+<li class="flex justify-between font-bold text-primary"><span>Urgencias:</span> <span>24 Horas</span></li>
+</ul>
+</div>
+</div>
+<div class="mt-xl pt-base border-t border-outline-variant/30 px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-4">
+<div class="flex gap-6">
+<a class="text-label-sm text-secondary hover:text-primary" href="#">Privacy Policy</a>
+<a class="text-label-sm text-secondary hover:text-primary" href="#">Terms of Service</a>
+</div>
+<p class="text-label-sm text-secondary">Afrivet Clí­nica Veterinaria 2024. All Rights Reserved.</p>
+</div>
+</footer>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- Scroll Reveal Logic ---
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach((el) => {
+            revealObserver.observe(el);
+        });
+
+        // --- Hero Background Parallax Effect ---
+        const heroBg = document.getElementById('hero-bg');
+        window.addEventListener('scroll', () => {
+            const scrollPos = window.pageYOffset;
+            if (scrollPos < 1000) {
+                const move = scrollPos * 0.2;
+                heroBg.style.transform = `scale(1.05) translateY(${move}px)`;
+            }
+        });
+
+        // --- Nav Link Scroll Highlighting (Optional but nice) ---
+        const sections = document.querySelectorAll('section[id]');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            document.querySelectorAll('nav a').forEach(a => {
+                a.classList.remove('after:scale-x-100');
+                a.classList.add('after:scale-x-0');
+                if (a.getAttribute('href').slice(1) === current) {
+                    a.classList.remove('after:scale-x-0');
+                    a.classList.add('after:scale-x-100');
+                }
+            });
+        });
+
+        // Handle prefers-reduced-motion programmatically if needed
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            // Can explicitly disable observers or complex scripts here if desired
+        }
+    });
+</script>
+</body></html>
